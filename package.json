@@ -6,7 +6,6 @@
   "scripts": {
     "push": "git add -A && git commit -m commit && git push",
     "start": "./node_modules/.bin/babel-node --debug --presets latest -- index.js --debug",
-    "download": "./node_modules/.bin/babel-node --debug --presets latest -- download.js --debug",
     "test": "ava"
   },
   "repository": {
