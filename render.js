@@ -29,7 +29,7 @@ module.exports = async function(data) {
         await writeFile('./publish/index.html', html, 'utf-8');
         
         // temp
-        data = data.reduce((prev, ) => {
+        data = data.reduce((prev, next) => {
             return prev.concat(next.res);
         }, []);
 
