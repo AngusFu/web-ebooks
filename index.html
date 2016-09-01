@@ -43,7 +43,7 @@
 
                     $scope.timer = $timeout(function() {
                         $scope.data = data.filter(function(item) {
-                            return item && item.title.indexOf(newValue) > -1;
+                            return item && item.title.toLowercase().indexOf(newValue.toLowercase()) > -1;
                         });
                     }, 200);
                 });
