@@ -9,13 +9,18 @@ const db = require('./publish/db');
 const init = async function (source) {
     var queue = [];
 
-    db.forEach((item) => {
-        queue.push(item.url);
+    db.forEach(async (item) => {
+        queue.push(await fetch({url: item.url, column: '..download-links a'}));
     });
 
-    queue.length && download(queue.shift(), './publish/', function a() {
-        queue.length && download(queue.shift(), './publish/', a);
-    });
+    var downloadOne = async function() {
+        var item = await queue.shift();
+        item && download(item.url, './publish/', function () {
+            downloadOne();
+        });
+    };
+
+    downloadOne();
 }
 
 init();
