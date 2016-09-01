@@ -25,7 +25,7 @@ module.exports = async function(data) {
     try {
         await mkdirp('./publish/');
         let tmpl = await readFile('./index.html');
-        let html = ejs.render(tmpl.toString(), {data: data});
+        let html = ejs.render(tmpl.toString(), {data: JSON.stringify(data)});
         
         try {
             await rename('./publish/index.html', './publish/index_' + (Date.now()) + '.html');
