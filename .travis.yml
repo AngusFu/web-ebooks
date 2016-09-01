@@ -1,0 +1,35 @@
+language: node_js
+node_js: stable
+
+# S: Build Lifecycle
+install:
+  - npm install
+
+before_script:
+  #- rm -rf ./publish
+
+script:
+  - npm start
+  - cd ./publish
+  - echo "ebook.wemlion.com" > CNAME
+  - git init
+  - git config user.name "wemlion"
+  - git config user.email "angusfu1126@qq.com"
+  - git add .
+  - git commit -m "Update docs"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
+
+# after_script:
+
+# E: Build LifeCycle
+
+branches:
+  only:
+    - master
+env:
+ global:
+   - GH_REF: github.com/AngusFu/web-ebooks.git
+
+cache:
+  directories:
+    - node_modules

@@ -1,0 +1,49 @@
+{
+    "伯乐在线": {
+        "url": "http://web.jobbole.com/all-posts/",
+        "column": ".post",
+        "href": ".archive-title",
+        "title": ".archive-title",
+        "time": ".post-meta p"
+    },
+    
+    "EtherDream": {
+        "url": "http://www.cnblogs.com/index-html/",
+        "column": ".day .postTitle",
+        "href": "a",
+        "title": "a",
+        "time": ""
+    },
+
+    "阮一峰": {
+        "url": "http://www.ruanyifeng.com/blog/javascript/",
+        "column": "#alpha .module-list-item",
+        "href": "a",
+        "title": "a",
+        "time": ".hint"
+    },
+
+    "张鑫旭": {
+        "url": "http://www.zhangxinxu.com/wordpress/",
+        "column": ".the_main .post",
+        "href": ".entry-title",
+        "title": ".entry-title",
+        "time": ".date"
+    },
+
+    "小胡子哥": {
+        "url": "http://barretlee.com/blog/archives/",
+        "column": ".cate-detail li",
+        "href": "a",
+        "title": "a",
+        "time": "span"
+    },
+
+    "众成翻译": {
+        "url": "http://www.zcfy.cc/article/archive",
+        "column": ".article-list .item ol li",
+        "href": "a",
+        "title": "a",
+        "time": ""
+    }
+}
