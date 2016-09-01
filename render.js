@@ -17,6 +17,11 @@ const render = function(filename, data, options = {}) {
 };
 
 module.exports = async function(data) {
+
+    data = data.reduce((prev, next) => {
+        return prev.concat(next.res);
+    }, []);
+
     try {
         await mkdirp('./publish/');
         let tmpl = await readFile('./index.html');
@@ -27,12 +32,6 @@ module.exports = async function(data) {
         } catch (e) {}
 
         await writeFile('./publish/index.html', html, 'utf-8');
-        
-        // temp
-        data = data.reduce((prev, next) => {
-            return prev.concat(next.res);
-        }, []);
-
         await writeFile('./publish/db.json', JSON.stringify(data, null, 4), 'utf-8');
     } catch (e) {
         console.log(e);
