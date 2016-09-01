@@ -1,30 +1,112 @@
+
 <!DOCTYPE html>
 <html ng-app="bookApp">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Web Development</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="http://www.wemlion.com/styles/apollo.css">
-    <style>
-        .wrap {width: 800px;}
-    </style>
     <script src="//cdn.bootcss.com/angular.js/1.4.12/angular.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: -apple-system,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB",STHeiti,"Microsoft YaHei","Microsoft JhengHei","Source Han Sans SC","Noto Sans CJK SC","Source Han Sans CN","Noto Sans SC","Source Han Sans TC","Noto Sans CJK TC","WenQuanYi Micro Hei",SimSun,sans-serif;
+        }
+        .site-header {
+            position: relative;
+            text-align: center;
+            background-color: #27AE60;
+            color: #fff;
+        }
+        .site-header h1 {
+            font-size: 56px;
+            line-height: 200px;
+            text-shadow: -5px 5px 0 rgba(0,0,0,0.1);
+        }
+        .site-header .form-group {
+            position: relative;
+            margin: 0 auto;
+            padding: 50px 0;
+            max-width: 1000px;
+        }
+        .site-header .form-group input {
+            display: block;
+            width: 100%;
+            border: 2px solid #27AE60;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            font-size: 16px;
+            padding: 13px 30px;
+            border-radius: 0;
+            height: auto;
+            text-align: center;
+        }
+        .site-header .form-group input:focus {
+            outline: 0;
+        }
+
+        table {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 80%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            margin-top: 60px;
+            background-color: #ffffff;
+            cursor: pointer;
+        }
+        tr:hover {
+            background-color: #dedede;
+        }
+        td {
+            height: 30px;
+            line-height: 30px;
+            vertical-align: middle;
+            font-size: 13px;
+            color: #666;
+            border: 1px solid #bbb;
+            padding: 10px 20px;
+        }
+        td:first-child {
+            text-align: center;
+            width: 30%;
+        }
+    </style>
 </head>
 
 <body>
     <div class="wrap ng-cloak" ng-controller="ListController">
+        <div class="site-header">
+            <h1>Web Development Resources</h1>
+            <div class="form-group">
+                <input type="text" class="form-control search clearable" placeholder="搜索 IT 书籍资源" ng-model="keyword">
+            </div>
+        </div>
+
+        <table>
+            <tr ng-repeat="item in data" ng-if="item">
+                <td>{{item.title}}</td>
+                <td>{{item.summary}}</td>
+            </tr>
+        </table>
+        <!-- 
         <input type="text" ng-model="keyword">
         <section class="container">
             <div class="archive">
                 <div class="post-item" ng-repeat="item in data">
                     <div class="post-item">
                         <a href="{{item.href}}" title="Date-in-Javascript" class="post-title-link" target="_blank">
-                            {{item.title}}
+                            
                         </a>
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
     </div>
     <script>
         var data = <%- data %>;
@@ -32,7 +114,7 @@
     <script>
         angular.module('bookApp', [])
             .controller('ListController', ['$http', '$timeout', '$scope', function($http, $timeout, $scope){
-                $scope.data = data;
+                $scope.data = data.slice(0, 60);
 
                 $scope.$watch('keyword', function(newValue, oldValue, scope) {
                     if (newValue == oldValue || !newValue) return;
@@ -43,7 +125,7 @@
 
                     $scope.timer = $timeout(function() {
                         $scope.data = data.filter(function(item) {
-                            return item && item.title.toLowercase().indexOf(newValue.toLowercase()) > -1;
+                            return item && item.title && item.title.toLowerCase().indexOf(newValue.toLowerCase()) > -1;
                         });
                     }, 200);
                 });
