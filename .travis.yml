@@ -10,7 +10,6 @@ before_script:
 
 script:
   - npm start
-  - npm run download
   - cd ./publish
   - echo "ebook.wemlion.com" > CNAME
   - git init
