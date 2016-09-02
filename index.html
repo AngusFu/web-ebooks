@@ -15,18 +15,35 @@
         html, body {
             width: 100%;
             height: 100%;
+            min-height: 100%;
             font-family: -apple-system,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB",STHeiti,"Microsoft YaHei","Microsoft JhengHei","Source Han Sans SC","Noto Sans CJK SC","Source Han Sans CN","Noto Sans SC","Source Han Sans TC","Noto Sans CJK TC","WenQuanYi Micro Hei",SimSun,sans-serif;
+        }
+        .wrap {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-height: 100%;
         }
         .site-header {
             position: relative;
             text-align: center;
-            background-color: #27AE60;
+            background-color: #42b983;
             color: #fff;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
         }
         .site-header h1 {
             font-size: 56px;
-            line-height: 200px;
+            line-height: 140px;
             text-shadow: -5px 5px 0 rgba(0,0,0,0.1);
+        }
+        .site-header h2 {
+            font-size: 30px;
+            line-height: 40px;
         }
         .site-header .form-group {
             position: relative;
@@ -49,7 +66,12 @@
         .site-header .form-group input:focus {
             outline: 0;
         }
-
+        
+        .table, .error {
+            -webkit-box-flex: 1;
+            -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+        }
         table {
             max-width: 1200px;
             margin: 0 auto;
@@ -76,6 +98,33 @@
             text-align: center;
             width: 30%;
         }
+        footer {
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            text-align: center;
+            font-size: 16px;
+            line-height: 50px;
+            margin-top: 50px;
+            background-color: #42b983;
+            color: #fff;
+        }
+        footer a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .error {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 80%;
+            margin-top: 60px;
+            background-color: #ffffff;
+            
+            line-height: 300px;
+            text-align: center;
+            font-size: 24px;
+
+            color: #999;
+        }
     </style>
 </head>
 
@@ -88,25 +137,22 @@
             </div>
         </div>
 
-        <table>
-            <tr ng-repeat="item in data" ng-if="item">
-                <td>{{item.title}}</td>
-                <td>{{item.summary}}</td>
-            </tr>
-        </table>
-        <!-- 
-        <input type="text" ng-model="keyword">
-        <section class="container">
-            <div class="archive">
-                <div class="post-item" ng-repeat="item in data">
-                    <div class="post-item">
-                        <a href="{{item.href}}" title="Date-in-Javascript" class="post-title-link" target="_blank">
-                            
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section> -->
+        <div class="table" ng-if="data.length > 0">
+            <table>
+                <tr ng-repeat="item in data" ng-if="item">
+                    <td>{{item.title}}</td>
+                    <td>{{item.summary}}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="error" ng-if="!data.length">
+            Sorry, try annother key word...
+        </div>
+
+        <footer>
+            inspired by <a href="http://www.bootcdn.cn/" target="_blank">BootCDN</a>
+        </footer>
     </div>
     <script>
         var data = <%- data %>;
@@ -114,7 +160,11 @@
     <script>
         angular.module('bookApp', [])
             .controller('ListController', ['$http', '$timeout', '$scope', function($http, $timeout, $scope){
-                $scope.data = data.slice(0, 60);
+                $scope.data = data.slice(0, 30);
+
+                $scope.go = function(url) {
+                    window.open(url);
+                };
 
                 $scope.$watch('keyword', function(newValue, oldValue, scope) {
                     if (newValue == oldValue || !newValue) return;
