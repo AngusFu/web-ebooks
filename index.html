@@ -139,7 +139,7 @@
 
         <div class="table" ng-if="data.length > 0">
             <table>
-                <tr ng-repeat="item in data" ng-if="item">
+                <tr ng-repeat="item in data" ng-if="item" ng-click="go(item.href)">
                     <td>{{item.title}}</td>
                     <td>{{item.summary}}</td>
                 </tr>
