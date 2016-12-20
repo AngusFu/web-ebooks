@@ -8519,66 +8519,7 @@
         "summary": "Ever wished you could learn Python from a book? Head First Python is a complete learning experience for Python that helps you learn the language through a unique method that goes beyond syntax and how-to manuals, helping you understand how to be a great Python programmer. You’ll quickly…",
         "time": ""
     },
-    {
-        "href": "http://www.allitebooks.com/mysql-for-python/",
-        "title": "MySQL for Python",
-        "summary": "Python is a dynamic programming language, which is completely enterprise ready, owing largely to the variety of support modules that are available to extend its capabilities. In order to build productive and feature-rich Python applications, we need to use MySQL for Python, a module that provides database support…",
-        "time": ""
-    },
-    {
-        "href": "http://www.allitebooks.com/pro-python/",
-        "title": "Pro Python",
-        "summary": "You’ve learned the basics of Python, but how do you take your skills to the next stage? Even if you know enough to be productive, there are a number of features that can take you to the next level in Python. Pro Python explores concepts and features normally…",
-        "time": ""
-    },
-    {
-        "href": "http://www.allitebooks.com/professional-ironpython/",
-        "title": "Professional IronPython",
-        "summary": "IronPython should be an important part of your developer’s toolbox and this book will quickly get you up and running with this powerful language. John Paul Mueller clearly shows how IronPython can help you create better desktop or web-based applications in less time and with fewer errors. Throughout…",
-        "time": ""
-    },
-    {
-        "href": "http://www.allitebooks.com/programming-python-4th-edition/",
-        "title": "Programming Python, 4th Edition",
-        "summary": "If you’ve mastered Python’s fundamentals, you’re ready to start using it to get real work done. Programming Python will show you how, with in-depth tutorials on the language’s primary application domains: system administration, GUIs, and the Web. You’ll also explore how Python is used in databases, networking, front-end…",
-        "time": ""
-    },
-    {
-        "href": "http://www.allitebooks.com/python-algorithms/",
-        "title": "Python Algorithms",
-        "summary": "Python Algorithms explains the Python approach to algorithm analysis and design. Written by Magnus Lie Hetland, author of Beginning Python, this book is sharply focused on classical algorithms, but it also gives a solid understanding of fundamental algorithmic problem-solving techniques. The book is intended for Python programmers who…",
-        "time": ""
-    },
-    {
-        "href": "http://www.allitebooks.com/python-geospatial-development/",
-        "title": "Python Geospatial Development",
-        "summary": "Build applications for GIS development using Python. Analyze and visualize Geo-Spatial data. Comprehensive coverage of key GIS concepts. Recommended best practices for storing spatial data in a database. Draw maps, place data points onto a map, and interact with maps. A practical tutorial with plenty of step-by-step instructions…",
-        "time": ""
-    },
-    {
-        "href": "http://www.allitebooks.com/python-text-processing-with-nltk-2-0-cookbook/",
-        "title": "Python Text Processing with NLTK 2.0 Cookbook",
-        "summary": "Natural Language Processing is used everywhere – in search engines, spell checkers, mobile phones, computer games – even your washing machine. Python’s Natural Language Toolkit (NLTK) suite of libraries has rapidly emerged as one of the most efficient tools for Natural Language Processing. You want to employ nothing…",
-        "time": ""
-    },
-    {
-        "href": "http://www.allitebooks.com/real-world-instrumentation-with-python/",
-        "title": "Real World Instrumentation with Python",
-        "summary": "Learn how to develop your own applications to monitor or control instrumentation hardware. Whether you need to acquire data from a device or automate its functions, this practical book shows you how to use Python’s rapid development capabilities to build interfaces that include everything from software to wiring….",
-        "time": ""
-    },
-    {
-        "href": "http://www.allitebooks.com/the-definitive-guide-to-jython/",
-        "title": "The Definitive Guide to Jython",
-        "summary": "Jython is an open source implementation of the high-level, dynamic, object-oriented scripting language Python seamlessly integrated with the Java platform. The predecessor to Jython, JPython, is certified as 100% Pure Java. Jython is freely available for both commercial and noncommercial use and is distributed with source code. Jython…",
-        "time": ""
-    },
-    {
-        "href": "http://www.allitebooks.com/wxpython-2-8-application-development-cookbook/",
-        "title": "wxPython 2.8 Application Development Cookbook",
-        "summary": "Develop flexible applications in wxPython. Create interface translatable applications that will run on Windows, Macintosh OSX, Linux, and other UNIX like environments. Learn basic and advanced user interface controls. Packed with practical, hands-on cookbook recipes and plenty of example code, illustrating the techniques to develop feature rich applications…",
-        "time": ""
-    },
+    null,
     {
         "href": "http://www.allitebooks.com/beginning-django-e-commerce/",
         "title": "Beginning Django E-Commerce",

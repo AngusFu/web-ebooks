@@ -13,16 +13,16 @@ module.exports = async function(data) {
     }, []);
 
     try {
-        await mkdirp('./publish/');
+        await mkdirp('./docs/');
         let tmpl = await readFile('./index.html');
         let html = ejs.render(tmpl.toString(), {data: JSON.stringify(data)});
         
         try {
-            await rename('./publish/index.html', './publish/index_' + (Date.now()) + '.html');
+            await rename('./docs/index.html', './docs/index_' + (Date.now()) + '.html');
         } catch (e) {}
 
-        await writeFile('./publish/index.html', html, 'utf-8');
-        await writeFile('./publish/db.json', JSON.stringify(data, null, 4), 'utf-8');
+        await writeFile('./docs/index.html', html, 'utf-8');
+        await writeFile('./docs/db.json', JSON.stringify(data, null, 4), 'utf-8');
     } catch (e) {
         console.log(e);
     }
