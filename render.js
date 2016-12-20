@@ -1,20 +1,10 @@
 const fs = require('fs');
+const ejs = require('ejs');
 const Promise = require('bluebird');
 const mkdirp  = Promise.promisify(require('mkdirp'));
 const writeFile = Promise.promisify(fs.writeFile);
 const readFile  = Promise.promisify(fs.readFile);
 const rename = Promise.promisify(fs.rename);
-
-const ejs = require('ejs');
-const render = function(filename, data, options = {}) {
-    return new Promise(function(resolve, reject) {
-            console.log(filename, data, options);
-        (filename, data, options, function(err, str){
-            if (err) reject();
-            resolve(str);
-        });      
-    });
-};
 
 module.exports = async function(data) {
 
